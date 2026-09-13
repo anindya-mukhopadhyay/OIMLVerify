@@ -1,5 +1,6 @@
-import { UploadCloud } from 'lucide-react'
+import { Camera, Check, MapPin, UploadCloud } from 'lucide-react'
 import { useState } from 'react'
+import { CameraCaptureModal } from '../components/CameraCaptureModal'
 import { PageHeader } from '../components/PageHeader'
 import { useAuth } from '../context/authState'
 import { useLabData } from '../context/labDataState'
@@ -21,11 +22,13 @@ export function EvidencePage() {
   const [kind, setKind] = useState<AttachmentKind>('Test Photograph')
   const [file, setFile] = useState<File | null>(null)
   const [message, setMessage] = useState('')
+  const [isCameraOpen, setIsCameraOpen] = useState(false)
+  const [geoStamp, setGeoStamp] = useState<string | null>(null)
   const relevantObservations = observations.filter((observation) => observation.testId === testId)
 
   const onUpload = async () => {
     if (!file || !testId) {
-      setMessage('Choose a test and file before registering evidence.')
+      setMessage('Choose a test and capture or choose a file before registering evidence.')
       return
     }
 
@@ -44,21 +47,44 @@ export function EvidencePage() {
         downloadUrl: storageResult.downloadUrl,
         uploadedBy: user?.displayName ?? 'Unknown user',
       })
-      setMessage(firebaseEnabled ? 'Evidence uploaded to Firebase Storage.' : 'Evidence registered in demo mode.')
+      setMessage(
+        firebaseEnabled
+          ? `Evidence uploaded to Firebase Storage${geoStamp ? ` with Geotag [${geoStamp}]` : ''}.`
+          : `Evidence registered in demo mode${geoStamp ? ` with Geotag [${geoStamp}]` : ''}.`,
+      )
       setFile(null)
+      setGeoStamp(null)
     } catch (caught) {
       setMessage(caught instanceof Error ? caught.message : 'Evidence upload failed.')
     }
   }
 
+  const handleCameraCapture = (capturedFile: File, metadata: { geo?: string; timestamp: string }) => {
+    setFile(capturedFile)
+    setKind('Test Photograph')
+    setGeoStamp(metadata.geo || null)
+    setMessage(`Live inspection photo captured (${metadata.geo ? `GPS: ${metadata.geo}` : 'Ready to register'}).`)
+  }
+
   return (
     <div className="page-stack">
-      <PageHeader eyebrow="Firebase Storage ready" title="Evidence Management" />
+      <PageHeader eyebrow="Field Verification & Storage" title="Evidence Management">
+        <button
+          type="button"
+          className="primary-button"
+          onClick={() => setIsCameraOpen(true)}
+        >
+          <Camera size={18} />
+          <span>Open Live Camera</span>
+        </button>
+      </PageHeader>
+
       <section className="panel">
         <div className="panel-heading">
-          <h3>Register Evidence</h3>
-          <span>{firebaseEnabled ? 'Uploads to Firebase Storage' : 'Demo storage path only'}</span>
+          <h3>Register Evidence & Field Photos</h3>
+          <span>{firebaseEnabled ? 'Uploads to Firebase Storage' : 'Demo storage path mode'}</span>
         </div>
+
         <div className="form-grid two-column">
           <label>
             Test
@@ -85,17 +111,56 @@ export function EvidencePage() {
               ))}
             </select>
           </label>
-          <label>
-            File
-            <input type="file" onChange={(event) => setFile(event.target.files?.[0] ?? null)} />
-          </label>
-          <button type="button" className="primary-button" onClick={onUpload}>
-            <UploadCloud size={18} />
-            <span>Register evidence</span>
-          </button>
-          {message ? <p className="form-message">{message}</p> : null}
+
+          <div className="evidence-input-group">
+            <label>
+              Select Existing File or Capture Photo
+              <div className="file-or-camera-row">
+                <input
+                  type="file"
+                  accept="image/*,.pdf,.doc,.docx"
+                  onChange={(event) => {
+                    setFile(event.target.files?.[0] ?? null)
+                    setGeoStamp(null)
+                  }}
+                />
+                <button
+                  type="button"
+                  className="secondary-button quick-camera-btn"
+                  onClick={() => setIsCameraOpen(true)}
+                  title="Click to take instant photo with camera and geotag"
+                >
+                  <Camera size={16} />
+                  <span>Take Photo</span>
+                </button>
+              </div>
+            </label>
+          </div>
+
+          {file && (
+            <div className="evidence-file-preview full-span">
+              <Check size={16} className="preview-check-icon" />
+              <span>Selected: <strong>{file.name}</strong> ({(file.size / 1024).toFixed(1)} KB)</span>
+              {geoStamp && (
+                <span className="preview-geo-badge">
+                  <MapPin size={12} />
+                  {geoStamp}
+                </span>
+              )}
+            </div>
+          )}
+
+          <div className="full-span">
+            <button type="button" className="primary-button" onClick={onUpload} disabled={!file}>
+              <UploadCloud size={18} />
+              <span>Register Evidence</span>
+            </button>
+          </div>
+
+          {message ? <p className="form-message full-span">{message}</p> : null}
         </div>
       </section>
+
       <section className="table-panel">
         <table>
           <thead>
@@ -123,6 +188,14 @@ export function EvidencePage() {
           </tbody>
         </table>
       </section>
+
+      {/* Live Camera Capture Modal */}
+      <CameraCaptureModal
+        isOpen={isCameraOpen}
+        onClose={() => setIsCameraOpen(false)}
+        onCapture={handleCameraCapture}
+        title="Capture Field Inspection Evidence"
+      />
     </div>
   )
 }

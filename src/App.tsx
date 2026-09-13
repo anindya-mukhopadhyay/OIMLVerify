@@ -25,6 +25,9 @@ const LoginPage = lazy(() => import('./pages/LoginPage').then((module) => ({ def
 const ProfilePage = lazy(() =>
   import('./pages/ProfilePage').then((module) => ({ default: module.ProfilePage })),
 )
+const PublicVerificationPage = lazy(() =>
+  import('./pages/PublicVerificationPage').then((module) => ({ default: module.PublicVerificationPage })),
+)
 const ReportPreviewPage = lazy(() =>
   import('./pages/ReportPreviewPage').then((module) => ({ default: module.ReportPreviewPage })),
 )
@@ -41,9 +44,14 @@ function App() {
     <AuthProvider>
       <LabDataProvider>
         <BrowserRouter>
-          <Suspense fallback={<div className="loading-screen">Loading MetriWeigh...</div>}>
+          <Suspense fallback={<div className="loading-screen">Loading National Metrology Portal...</div>}>
             <Routes>
+              {/* Public Routes */}
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/verify" element={<PublicVerificationPage />} />
+              <Route path="/verify/:id" element={<PublicVerificationPage />} />
+
+              {/* Protected Laboratory Management Routes */}
               <Route element={<ProtectedRoute />}>
                 <Route element={<AppShell />}>
                   <Route index element={<DashboardPage />} />

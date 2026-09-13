@@ -1032,3 +1032,1585 @@ dd {
     justify-content: space-between;
   }
 }
+
+/* --------------------------------------------------
+ * Official Government Portal Top Ribbon
+ * -------------------------------------------------- */
+.gov-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gov-top-ribbon {
+  background: #0c2340; /* Sovereign Government Metrology Navy */
+  color: #ffffff;
+  position: relative;
+  z-index: 50;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gov-ribbon-tricolor {
+  height: 3.5px;
+  background: linear-gradient(
+    90deg,
+    #ff9933 0%,
+    #ff9933 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #138808 66.66%,
+    #138808 100%
+  );
+  width: 100%;
+}
+
+.gov-ribbon-content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 24px;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.gov-ribbon-left {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.gov-emblem-badge {
+  align-items: center;
+  background: #c27803;
+  border-radius: 4px;
+  color: #ffffff;
+  display: inline-flex;
+  height: 22px;
+  justify-content: center;
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.gov-titles {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gov-authority-hi {
+  color: #ffd885;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gov-authority-en {
+  color: #e2e8f0;
+  font-size: 11.5px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gov-ribbon-right {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.gov-portal-badge {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #a7f3d0;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  gap: 5px;
+  padding: 3px 8px;
+}
+
+.gov-accessibility-controls {
+  align-items: center;
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.a11y-btn {
+  background: transparent;
+  border: 0;
+  color: #cbd5e1;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+.a11y-btn:hover,
+.a11y-btn.active {
+  background: #c27803;
+  color: #ffffff;
+}
+
+.gov-lang-btn {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 600;
+  gap: 5px;
+  padding: 3px 8px;
+  transition: background 0.15s ease;
+}
+
+.gov-lang-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-gov-seal {
+  align-items: center;
+  background: rgba(194, 120, 3, 0.15);
+  border: 1px solid rgba(194, 120, 3, 0.3);
+  border-radius: var(--radius);
+  color: #f6ad55;
+  display: flex;
+  font-size: 11px;
+  font-weight: 700;
+  gap: 8px;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------
+ * QR Code Display & Framing
+ * -------------------------------------------------- */
+.qr-display-container {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qr-image-wrapper {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: inline-block;
+  padding: 8px;
+  position: relative;
+}
+
+.qr-image {
+  display: block;
+  border-radius: 4px;
+}
+
+.qr-corner {
+  border-color: #0c2340;
+  border-style: solid;
+  height: 12px;
+  position: absolute;
+  width: 12px;
+}
+
+.qr-corner.top-left {
+  border-width: 2.5px 0 0 2.5px;
+  top: 4px;
+  left: 4px;
+}
+
+.qr-corner.top-right {
+  border-width: 2.5px 2.5px 0 0;
+  top: 4px;
+  right: 4px;
+}
+
+.qr-corner.bottom-left {
+  border-width: 0 0 2.5px 2.5px;
+  bottom: 4px;
+  left: 4px;
+}
+
+.qr-corner.bottom-right {
+  border-width: 0 2.5px 2.5px 0;
+  bottom: 4px;
+  right: 4px;
+}
+
+.qr-placeholder {
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.qr-loading-icon {
+  animation: pulse 1.5s infinite;
+  color: var(--muted);
+}
+
+.qr-caption {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.qr-download-btn {
+  font-size: 12px;
+  min-height: 32px;
+  padding: 4px 10px;
+}
+
+/* --------------------------------------------------
+ * Camera Capture Modal & Viewfinder
+ * -------------------------------------------------- */
+.camera-modal-backdrop {
+  align-items: center;
+  background: rgba(10, 20, 24, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 16px;
+  position: fixed;
+  z-index: 120;
+}
+
+.camera-modal-dialog {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  max-height: 94vh;
+  max-width: 680px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.camera-modal-header {
+  align-items: center;
+  background: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.camera-header-info {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.camera-header-icon {
+  color: #38bdf8;
+}
+
+.camera-modal-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.camera-geo-pill {
+  align-items: center;
+  color: #94a3b8;
+  display: inline-flex;
+  font-size: 11px;
+  font-family: monospace;
+  gap: 4px;
+}
+
+.camera-viewfinder-container {
+  align-items: center;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+
+.camera-video-stream {
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.camera-guide-target {
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  inset: 24px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.camera-guide-overlay {
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  bottom: 16px;
+  color: #f1f5f9;
+  font-size: 12px;
+  padding: 6px 14px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.camera-preview-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.camera-captured-image {
+  max-height: 520px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.camera-watermark-notice {
+  align-items: center;
+  background: rgba(16, 185, 129, 0.9);
+  border-radius: 20px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 6px;
+  padding: 6px 14px;
+  position: absolute;
+  top: 14px;
+}
+
+.camera-flash {
+  animation: flashAnim 0.2s ease-out;
+  background: #ffffff;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+}
+
+@keyframes flashAnim {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+.camera-error-panel {
+  align-items: center;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.camera-modal-actions {
+  align-items: center;
+  background: #1e293b;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.shutter-button {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 10px;
+  padding: 10px 24px;
+}
+
+.shutter-inner {
+  background: #ffffff;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+}
+
+.evidence-input-group {
+  display: grid;
+  gap: 6px;
+}
+
+.file-or-camera-row {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr auto;
+}
+
+.quick-camera-btn {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.evidence-file-preview {
+  align-items: center;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius);
+  color: #166534;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 10px;
+  padding: 10px 14px;
+}
+
+.preview-geo-badge {
+  align-items: center;
+  background: rgba(22, 101, 52, 0.12);
+  border-radius: 4px;
+  display: inline-flex;
+  font-family: monospace;
+  font-size: 11px;
+  gap: 4px;
+  padding: 2px 6px;
+}
+
+/* --------------------------------------------------
+ * Digital Signature Pad
+ * -------------------------------------------------- */
+.signature-modal-dialog {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.signature-officer-sub {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.signature-canvas-container {
+  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+  padding: 16px;
+  position: relative;
+  touch-action: none;
+}
+
+.signature-canvas {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+  cursor: crosshair;
+  display: block;
+  touch-action: none;
+  width: 100%;
+}
+
+.signature-sign-guide {
+  color: #94a3b8;
+  font-size: 11px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.signature-modal-actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.signature-tools-left,
+.signature-tools-right {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+/* --------------------------------------------------
+ * Official Government Certificate View & Printing
+ * -------------------------------------------------- */
+.official-cert-wrapper {
+  display: grid;
+  gap: 18px;
+}
+
+.cert-toolbar {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.cert-toolbar-left {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.cert-toolbar-icon {
+  color: #c27803;
+}
+
+.cert-toolbar-left strong {
+  display: block;
+  font-size: 15px;
+}
+
+.cert-toolbar-left span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.cert-toolbar-actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.report-mode-toggle {
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: inline-flex;
+  padding: 2px;
+}
+
+.mode-toggle-btn {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 6px;
+  padding: 7px 12px;
+  transition: all 0.15s ease;
+}
+
+.mode-toggle-btn.active {
+  background: var(--surface);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  color: var(--text);
+}
+
+.report-header-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.report-header-right {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.report-qr-mini {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.qr-mini-sub {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Certificate Sheet */
+.official-cert-sheet {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 12px 36px rgba(12, 35, 64, 0.08);
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 16px;
+  width: 100%;
+}
+
+.cert-outer-border {
+  border: 4px double #0c2340;
+  padding: 6px;
+}
+
+.cert-inner-border {
+  border: 1.5px solid #c27803;
+  padding: 24px 28px;
+}
+
+.cert-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  border-bottom: 2px solid #0c2340;
+  padding-bottom: 18px;
+}
+
+.cert-emblem-wrap {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cert-emblem {
+  color: #0c2340;
+}
+
+.cert-emblem-motto {
+  color: #c27803;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.cert-header-titles h2 {
+  color: #0c2340;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.cert-header-titles h3 {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 2px 0 0;
+}
+
+.cert-header-titles h4 {
+  color: #0c2340;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 4px 0 8px;
+  text-transform: uppercase;
+}
+
+.cert-title-badge {
+  background: #0c2340;
+  border-radius: 4px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+}
+
+.cert-standard-ref {
+  color: #64748b;
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.cert-meta-strip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  margin: 16px 0;
+  padding: 10px 14px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cert-meta-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.cert-meta-val {
+  color: #0c2340;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cert-intro-paragraph {
+  color: #334155;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 14px 0 16px;
+  text-align: justify;
+}
+
+.cert-spec-grid {
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  display: grid;
+  margin-bottom: 16px;
+}
+
+.cert-spec-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 140px 1fr;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cert-spec-row:last-child {
+  border-bottom: 0;
+}
+
+.cert-spec-title {
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+
+.cert-spec-data {
+  border-right: 1px solid #e2e8f0;
+  color: #0c2340;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 10px;
+}
+
+.cert-spec-data:last-child {
+  border-right: 0;
+}
+
+.cert-serial {
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.cert-class {
+  color: #166534;
+  font-weight: 800;
+}
+
+.cert-tests-summary {
+  margin-bottom: 14px;
+}
+
+.cert-tests-summary h5 {
+  color: #0c2340;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0 0 8px;
+}
+
+.cert-table {
+  border: 1px solid #cbd5e1;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cert-table th,
+.cert-table td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.cert-table th {
+  background: #0c2340;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.cert-pass-pill {
+  align-items: center;
+  color: #166534;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 4px;
+}
+
+.cert-geo-strip {
+  align-items: center;
+  background: #f1f5f9;
+  border-left: 3px solid #0c2340;
+  color: #475569;
+  display: flex;
+  font-size: 11.5px;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+}
+
+/* Certificate Footer (QR, Seal, Signature) */
+.cert-footer {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 18px 0;
+  padding-top: 12px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.cert-footer-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cert-qr-instructions {
+  color: #64748b;
+  font-size: 10px;
+  margin-top: 4px;
+  max-width: 160px;
+}
+
+/* Holographic Gold Seal Stamp */
+.cert-official-seal {
+  height: 120px;
+  position: relative;
+  width: 120px;
+}
+
+.seal-ring {
+  border-radius: 50%;
+  position: absolute;
+}
+
+.seal-ring.outer-ring {
+  border: 3px dashed #c27803;
+  inset: 0;
+  animation: rotateSeal 40s linear infinite;
+}
+
+@keyframes rotateSeal {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.seal-ring.inner-ring {
+  border: 2px solid #b8860b;
+  inset: 6px;
+}
+
+.seal-content {
+  align-items: center;
+  border-radius: 50%;
+  color: #854d0e;
+  display: flex;
+  flex-direction: column;
+  inset: 10px;
+  justify-content: center;
+  position: absolute;
+}
+
+.seal-star {
+  color: #c27803;
+  margin-bottom: 2px;
+}
+
+.seal-title {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.seal-subtitle {
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.seal-year {
+  font-size: 10px;
+  font-weight: 800;
+  color: #0c2340;
+}
+
+.cert-sig-box {
+  align-items: center;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  margin-bottom: 6px;
+  width: 180px;
+}
+
+.cert-signature-img {
+  max-height: 56px;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+.cert-sig-placeholder {
+  color: #94a3b8;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.cert-sig-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+}
+
+.cert-sig-details strong {
+  color: #0c2340;
+  font-size: 12px;
+}
+
+.cert-sig-details span {
+  color: #64748b;
+}
+
+.cert-disclaimer-strip {
+  border-top: 1px solid #e2e8f0;
+  color: #94a3b8;
+  font-size: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.toast-banner {
+  align-items: center;
+  animation: fadeIn 0.2s ease;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius);
+  color: #065f46;
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+/* --------------------------------------------------
+ * Public Verification Portal Styles
+ * -------------------------------------------------- */
+.public-verify-page {
+  background: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.public-gov-header {
+  background: #0c2340;
+  color: #ffffff;
+}
+
+.public-gov-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 16px 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.public-gov-brand {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.public-emblem-seal {
+  align-items: center;
+  background: #c27803;
+  border-radius: 8px;
+  color: #ffffff;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.public-gov-sub {
+  color: #fcd34d;
+  font-size: 12px;
+  font-weight: 700;
+  display: block;
+}
+
+.public-gov-brand h1 {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 2px 0;
+}
+
+.public-gov-authority {
+  color: #cbd5e1;
+  font-size: 12px;
+  display: block;
+}
+
+.portal-login-link {
+  font-size: 13px;
+}
+
+.public-verify-main {
+  flex: 1;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 24px 18px 48px;
+  width: 100%;
+}
+
+.public-search-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+  padding: 20px;
+}
+
+.public-search-label {
+  color: #0c2340;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.public-search-input-wrap {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.public-search-icon {
+  color: var(--muted);
+  left: 12px;
+  position: absolute;
+}
+
+.public-search-input {
+  font-size: 15px;
+  padding-left: 38px;
+}
+
+.public-search-submit {
+  flex-shrink: 0;
+}
+
+.public-certificate-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(12, 35, 64, 0.06);
+  overflow: hidden;
+  padding: 28px;
+}
+
+.public-certificate-card.not-found {
+  padding: 36px;
+  text-align: center;
+}
+
+.verify-hero-banner {
+  border-radius: 8px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+.verify-hero-banner.verified {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 1px solid #a7f3d0;
+}
+
+.verify-hero-banner.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  grid-template-columns: auto 1fr;
+}
+
+.verify-hero-icon {
+  color: #059669;
+}
+
+.verify-hero-icon-error {
+  color: #dc2626;
+}
+
+.verify-status-tag {
+  align-items: center;
+  background: #059669;
+  border-radius: 4px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 800;
+  gap: 6px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  margin-bottom: 6px;
+}
+
+.verify-hero-text h2 {
+  color: #064e3b;
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+
+.verify-hero-text p {
+  color: #047857;
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.verify-qr-hero {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.verify-qr-sub {
+  color: #065f46;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.verify-badge-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 24px;
+}
+
+.verify-badge-item {
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+}
+
+.badge-icon-accent {
+  color: #0c2340;
+}
+
+.verify-badge-label {
+  color: #64748b;
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.verify-badge-item strong {
+  color: #0c2340;
+  font-size: 14px;
+}
+
+.verify-section {
+  margin-bottom: 24px;
+}
+
+.verify-section-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.verify-section-heading h3 {
+  color: #0c2340;
+  font-size: 16px;
+  margin: 0;
+}
+
+.tamper-tag {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+}
+
+.tag-approved {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 4px;
+  color: #047857;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+}
+
+.verify-table-wrap {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.verify-spec-table,
+.verify-test-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.verify-spec-table th,
+.verify-spec-table td,
+.verify-test-table th,
+.verify-test-table td {
+  border: 1px solid #e2e8f0;
+  font-size: 13px;
+  padding: 10px 14px;
+}
+
+.verify-spec-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  width: 22%;
+}
+
+.verify-test-table th {
+  background: #0c2340;
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.spec-code {
+  background: #f1f5f9;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: 700;
+  padding: 2px 6px;
+}
+
+.verify-pass-badge {
+  align-items: center;
+  color: #059669;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 4px;
+}
+
+.verify-integrity-panel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.integrity-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 12px;
+}
+
+.integrity-item {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+}
+
+.integrity-icon {
+  color: #0c2340;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.integrity-item strong {
+  display: block;
+  font-size: 13px;
+}
+
+.integrity-item p {
+  color: #64748b;
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+.integrity-hash-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.hash-title {
+  color: #64748b;
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.hash-code {
+  color: #0c2340;
+  font-family: monospace;
+  font-size: 11px;
+  word-break: break-all;
+}
+
+.verify-actions-bar {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.not-found-helper {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.public-gov-footer {
+  background: #0c2340;
+  border-top: 3px solid #c27803;
+  color: #94a3b8;
+  padding: 24px 20px;
+  font-size: 12px;
+  margin-top: auto;
+}
+
+.public-footer-inner {
+  margin: 0 auto;
+  max-width: 1080px;
+  text-align: center;
+}
+
+.public-disclaimer {
+  color: #64748b;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------
+ * Responsive Rules for Government Features
+ * -------------------------------------------------- */
+@media (max-width: 900px) {
+  .gov-ribbon-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 14px;
+  }
+
+  .gov-ribbon-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cert-spec-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cert-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .verify-hero-banner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .verify-hero-icon-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .verify-badge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .integrity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .gov-authority-en {
+    display: none;
+  }
+
+  .public-certificate-card {
+    padding: 16px 12px;
+  }
+
+  .cert-inner-border {
+    padding: 16px 12px;
+  }
+
+  .cert-spec-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-spec-title {
+    border-bottom: 0;
+    border-right: 0;
+    padding-bottom: 2px;
+  }
+
+  .cert-spec-data {
+    border-right: 0;
+    padding-top: 2px;
+    padding-bottom: 8px;
+  }
+
+  .verify-badge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .public-search-input-wrap {
+    flex-direction: column;
+  }
+
+  .public-search-submit {
+    width: 100%;
+  }
+
+  .verify-actions-bar .primary-button,
+  .verify-actions-bar .secondary-button {
+    width: 100%;
+  }
+
+  .file-or-camera-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------
+ * Print Rules for Official Legal Metrology Certificate
+ * -------------------------------------------------- */
+@media print {
+  .no-print,
+  .gov-top-ribbon,
+  .sidebar,
+  .topbar,
+  .mobile-bottom-nav,
+  .page-header,
+  .cert-toolbar,
+  .public-search-card,
+  .public-gov-header,
+  .public-gov-footer,
+  .verify-actions-bar {
+    display: none !important;
+  }
+
+  body,
+  .app-shell,
+  .workspace,
+  main,
+  .official-cert-wrapper,
+  .public-verify-page {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    box-shadow: none !important;
+  }
+
+  .official-cert-sheet {
+    box-shadow: none !important;
+    border: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .cert-outer-border {
+    border: 3px double #000000 !important;
+  }
+
+  .cert-inner-border {
+    border: 1px solid #666666 !important;
+    padding: 18px !important;
+  }
+
+  .cert-table th {
+    background: #e2e8f0 !important;
+    color: #000000 !important;
+  }
+
+  .cert-table th,
+  .cert-table td {
+    border-color: #000000 !important;
+  }
+
+  .cert-title-badge {
+    background: #000000 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .seal-ring.outer-ring {
+    animation: none !important;
+    border-color: #000000 !important;
+  }
+
+  .seal-ring.inner-ring {
+    border-color: #000000 !important;
+  }
+}
