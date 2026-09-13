@@ -1,0 +1,46 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function roleIn(roles) {
+      return signedIn() && userRole() in roles;
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || roleIn(['Admin']));
+      allow write: if roleIn(['Admin']);
+    }
+
+    match /{collectionName}/{documentId} {
+      allow read: if signedIn()
+        && collectionName in [
+          'instruments',
+          'tests',
+          'testObservations',
+          'laboratories',
+          'referenceEquipment',
+          'reports',
+          'attachments',
+          'auditLogs'
+        ];
+      allow create, update: if roleIn(['Admin', 'Tester', 'Reviewer'])
+        && collectionName in [
+          'instruments',
+          'tests',
+          'testObservations',
+          'reports',
+          'attachments',
+          'auditLogs'
+        ];
+      allow delete: if roleIn(['Admin']);
+    }
+  }
+}
