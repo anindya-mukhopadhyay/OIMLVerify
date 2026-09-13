@@ -81,33 +81,35 @@ export function ReportPreviewPage() {
         </section>
         <section className="report-section">
           <h3>Test Observations and Calculations</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Procedure</th>
-                <th>Load</th>
-                <th>Indication</th>
-                <th>Error</th>
-                <th>Permissible Error</th>
-                <th>Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {testObservations.map((observation) => (
-                <tr key={observation.id}>
-                  <td>
-                    <strong>{observation.procedureName}</strong>
-                    <span>{observation.notes}</span>
-                  </td>
-                  <td>{observation.appliedLoad}</td>
-                  <td>{observation.indication}</td>
-                  <td>{observation.calculatedError}</td>
-                  <td>{observation.permissibleError ?? 'Reviewer required'}</td>
-                  <td><StatusBadge status={observation.result} /></td>
+          <div className="table-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th>Procedure</th>
+                  <th>Load</th>
+                  <th>Indication</th>
+                  <th>Error</th>
+                  <th>Permissible Error</th>
+                  <th>Result</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {testObservations.map((observation) => (
+                  <tr key={observation.id}>
+                    <td>
+                      <strong>{observation.procedureName}</strong>
+                      <span>{observation.notes}</span>
+                    </td>
+                    <td>{observation.appliedLoad}</td>
+                    <td>{observation.indication}</td>
+                    <td>{observation.calculatedError}</td>
+                    <td>{observation.permissibleError ?? 'Reviewer required'}</td>
+                    <td><StatusBadge status={observation.result} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
         <section className="report-section">
           <h3>Evidence and Attachments</h3>
